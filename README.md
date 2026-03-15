@@ -1,4 +1,4 @@
-# Unofficial API Denemesi
+# Akakçe ve Cimri Unofficial API
 
 Bu proje `Akakce` ve `Cimri` icin unofficial API denemesidir.
 
