@@ -1,0 +1,68 @@
+@baseUrl = http://localhost:3456
+@akakceKey = cep-telefonu__en-ucuz-iphone-15-fiyati,1745758198.html
+@cimriKey = cep-telefonlari__en-ucuz-apple-iphone-15-5g-128gb-akilli-cep-telefonu-fiyatlari,a2231112273
+@akakceUrl = https://www.akakce.com/turk-kahve-makinesi/en-ucuz-arcelik-tkm-9961-s-telve-siyah-ikili-fiyati,490406523.html
+@cimriUrl = https://www.cimri.com/cep-telefonlari/en-ucuz-apple-iphone-15-5g-128gb-akilli-cep-telefonu-fiyatlari,a2231112273
+
+### Ana endpoint
+GET {{baseUrl}}/
+
+### Provider health
+GET {{baseUrl}}/api/unofficial/health/providers
+
+### Arama
+GET {{baseUrl}}/api/unofficial/search?q=iphone%2015
+
+### Akakce urun detay
+GET {{baseUrl}}/api/unofficial/products/akakce/{{akakceKey}}
+
+### Akakce teklifler
+GET {{baseUrl}}/api/unofficial/products/akakce/{{akakceKey}}/offers
+
+### Not
+# `offers` icinde `redirectUrl` ve `targetUrl` alanlarini kontrol et.
+
+### Akakce sade satis verisi
+GET {{baseUrl}}/api/unofficial/products/akakce/{{akakceKey}}/sales
+
+### Not
+# `sales` icinde `redirectUrl` ve `targetUrl` alanlarini kontrol et.
+
+### Cimri urun detay
+GET {{baseUrl}}/api/unofficial/products/cimri/{{cimriKey}}
+
+### Cimri teklifler
+GET {{baseUrl}}/api/unofficial/products/cimri/{{cimriKey}}/offers
+
+### Not
+# `offers` icinde `redirectUrl` ve `targetUrl` alanlarini kontrol et.
+
+### Cimri sade satis verisi
+GET {{baseUrl}}/api/unofficial/products/cimri/{{cimriKey}}/sales
+
+### Not
+# Cimri tarafinda `targetUrl` cogunlukla `null` olabilir.
+
+### Direkt URL ile detay
+GET {{baseUrl}}/api/unofficial/by-url?url={{akakceUrl}}
+
+### Direkt URL ile teklifler
+GET {{baseUrl}}/api/unofficial/by-url/offers?url={{akakceUrl}}
+
+### Not
+# Akakce icin `redirectUrl` tipik olarak `https://www.akakce.com/c/?...` olur.
+
+### Direkt URL ile sade satis verisi
+GET {{baseUrl}}/api/unofficial/by-url/sales?url={{akakceUrl}}
+
+### Cimri direkt URL ile detay
+GET {{baseUrl}}/api/unofficial/by-url?url={{cimriUrl}}
+
+### Cimri direkt URL ile teklifler
+GET {{baseUrl}}/api/unofficial/by-url/offers?url={{cimriUrl}}
+
+### Not
+# Cimri icin `redirectUrl` tipik olarak `https://www.cimri.com/offer/...` olur.
+
+### Cimri direkt URL ile sade satis verisi
+GET {{baseUrl}}/api/unofficial/by-url/sales?url={{cimriUrl}}

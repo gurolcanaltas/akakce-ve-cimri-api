@@ -1,0 +1,16 @@
+{
+  "name": "unofficial-api-denemesi",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "smoke": "node smoke-test.js"
+  },
+  "dependencies": {
+    "cheerio": "^1.2.0",
+    "express": "^5.2.1",
+    "playwright": "^1.58.2"
+  }
+}
